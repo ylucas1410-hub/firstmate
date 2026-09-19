@@ -1,0 +1,45 @@
+==========================================================================
+EVIDENCE ARTIFACT 5: Deterministic Bootstrap Drift Detection
+==========================================================================
+Date: Sat Sep 19 10:41:22 UTC 2026
+Component: bin/fm-bootstrap.sh (detect_superwhisper_drift)
+
+1. Testing Package Specifier Variations:
+   [Baseline Clean]
+   Settings content: {"packages": ["git:github.com/dbachelder/pi-btw", "npm:pi-antigravity"]}
+   Bootstrap diagnostic output: CLEAN
+   [PASS] detect-only contract satisfied: settings.json was not modified.
+
+   [Full Specifier]
+   Settings content: {"packages": ["npm:@superwhisper/pi"]}
+   Bootstrap diagnostic output: SUPERWHISPER_DRIFT: global Pi settings re-enabled Superwhisper in /var/folders/q6/85qmrjc50x12lj8yqzv736tr0000gn/T/tmp.5NJ6XzK5y1/pi-agent/settings.json (remediation: pi remove npm:@superwhisper/pi)
+   [PASS] detect-only contract satisfied: settings.json was not modified.
+
+   [Bare Specifier]
+   Settings content: {"packages": ["@superwhisper/pi"]}
+   Bootstrap diagnostic output: SUPERWHISPER_DRIFT: global Pi settings re-enabled Superwhisper in /var/folders/q6/85qmrjc50x12lj8yqzv736tr0000gn/T/tmp.5NJ6XzK5y1/pi-agent/settings.json (remediation: pi remove npm:@superwhisper/pi)
+   [PASS] detect-only contract satisfied: settings.json was not modified.
+
+   [Version Pinned]
+   Settings content: {"packages": ["npm:@superwhisper/pi@1.2.3"]}
+   Bootstrap diagnostic output: SUPERWHISPER_DRIFT: global Pi settings re-enabled Superwhisper in /var/folders/q6/85qmrjc50x12lj8yqzv736tr0000gn/T/tmp.5NJ6XzK5y1/pi-agent/settings.json (remediation: pi remove npm:@superwhisper/pi)
+   [PASS] detect-only contract satisfied: settings.json was not modified.
+
+   [Tag Pinned]
+   Settings content: {"packages": ["@superwhisper/pi@latest"]}
+   Bootstrap diagnostic output: SUPERWHISPER_DRIFT: global Pi settings re-enabled Superwhisper in /var/folders/q6/85qmrjc50x12lj8yqzv736tr0000gn/T/tmp.5NJ6XzK5y1/pi-agent/settings.json (remediation: pi remove npm:@superwhisper/pi)
+   [PASS] detect-only contract satisfied: settings.json was not modified.
+
+2. Verification of Live Host Pi & Codex State:
+   Host Pi settings: /Users/lucas/.pi/agent/settings.json
+   Host Pi packages: [
+  "git:github.com/dbachelder/pi-btw",
+  "npm:pi-antigravity",
+  "npm:@yeungkc/pi-codex-compact"
+]
+   Host Codex settings: /Users/lucas/.codex/config.toml
+   Host Codex Superwhisper plugin: [plugins."superwhisper@superwhisper"]
+
+   Running bin/fm-bootstrap.sh against live host configuration:
+   Bootstrap diagnostic output: CLEAN: no drift reported for valid host baseline
+   [PASS] Desired globally enabled Codex plugin is not reported as drift; Pi settings remain clean.

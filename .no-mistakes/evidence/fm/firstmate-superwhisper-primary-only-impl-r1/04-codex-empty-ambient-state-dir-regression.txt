@@ -1,0 +1,24 @@
+==========================================================================
+EVIDENCE ARTIFACT 4: Empty Ambient State Directory Relaunch Regression Fix
+==========================================================================
+Date: Sat Sep 19 10:41:16 UTC 2026
+Concern: Prior wrapper failure with empty ambient SUPERWHISPER_AGENT_STATE_DIR
+
+1. Failure Mode Repro (Previous unhardened pattern):
+   When SUPERWHISPER_AGENT_STATE_DIR='' in caller environment, a subshell without
+   prefix-level default resolution attempted 'mkdir -p ""' and redirect to root '/disabled-...'
+   Reproduction demonstration:
+mkdir: .: No such file or directory
+sh: /disabled-test: Read-only file system
+
+2. Fixed Launch Interface Verification:
+   Command emitted by fm-spawn.sh has outer default expansion:
+   'SUPERWHISPER_AGENT_STATE_DIR="${SUPERWHISPER_AGENT_STATE_DIR:-/tmp/superwhisper-agent}" sh -c ...'
+
+   Executing real launch command with explicit ambient SUPERWHISPER_AGENT_STATE_DIR='':
+Codex running under ambient empty dir test
+Ambient SUPERWHISPER_AGENT_STATE_DIR inside worker: '/tmp/superwhisper-agent'
+Marker successfully located in state dir: /tmp/superwhisper-agent/disabled-dfd609e37064f75125886fb3783da527
+
+3. Marker Cleanup Verification:
+   [PASS] Fallback directory /tmp/superwhisper-agent was used, marker verified, and cleaned on exit.

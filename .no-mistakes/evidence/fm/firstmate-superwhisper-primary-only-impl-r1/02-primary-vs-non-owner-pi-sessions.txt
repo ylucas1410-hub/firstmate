@@ -1,0 +1,20 @@
+========================================================================
+EVIDENCE ARTIFACT 2: Primary vs Non-Owner Pi Session Behavior
+========================================================================
+Date: Sat Sep 19 10:39:42 UTC 2026
+Component: .pi/extensions/fm-primary-turnend-guard.ts
+
+1. Firstmate Primary Session (Lock Owner):
+   Lock status: OWNED by this process (PID 98047)
+   Session file disabled marker exists: false
+   PID disabled marker exists: false
+   [PASS] Primary Firstmate session does NOT create disabled markers; Superwhisper remains ACTIVE.
+
+2. Non-Owner Ordinary Pi Session (Opened at Firstmate root, Foreign Lock):
+   Lock status: FOREIGN (PID 1 holds lock, not this process PID 98092)
+   During session_start: markerFile exists = true
+   During session_start: markerPid exists = true
+   [PASS] Non-owner Pi session creates session-scoped Superwhisper disabled markers.
+   After session_shutdown: markerFile exists = false
+   After session_shutdown: markerPid exists = false
+   [PASS] Session shutdown cleanly removes Superwhisper disabled markers.

@@ -1,0 +1,31 @@
+==========================================================================
+EVIDENCE ARTIFACT 3: Codex Worker Silenced vs Captain Admin Session Active
+==========================================================================
+Date: Sat Sep 19 10:40:57 UTC 2026
+Superwhisper hook binary: /Applications/superwhisper.app/Contents/Resources/agent-hook
+
+1. Firstmate Codex Worker Launch Interface (bin/fm-spawn.sh):
+   Emitted command sent to pane multiplexer:
+export COMPACT_ADVISER_DISABLE=1; env -u CURSOR_AGENT -u CURSOR_INVOKED_AS -u GEMINI_CLI SUPERWHISPER_AGENT_STATE_DIR="${SUPERWHISPER_AGENT_STATE_DIR:-/tmp/superwhisper-agent}" sh -c 'sw_dir="$SUPERWHISPER_AGENT_STATE_DIR"; sw_marker="$sw_dir/disabled-$(if command -v md5 >/dev/null 2>&1; then printf %s "$PWD" | md5 -q; else printf %s "$PWD" | md5sum | awk "{print \$1}"; fi)"; mkdir -p "$sw_dir"; : > "$sw_marker"; trap "rm -f \"$sw_marker\"" EXIT; "$@"' -- codex --dangerously-bypass-approvals-and-sandbox --disable hooks -c "notify=[\"bash\",\"-c\",\"touch '/private/var/folders/q6/85qmrjc50x12lj8yqzv736tr0000gn/T/test-evidence-codex.NJInJY/home/state/proof-codex-worker.turn-ended'\"]" "$('/Users/lucas/.no-mistakes/worktrees/ab37031b4237/01M2WK2F2AGQQQZZ0T8YYEZCGY/bin/fm-operational-input.sh' encode launch-brief < '/private/var/folders/q6/85qmrjc50x12lj8yqzv736tr0000gn/T/test-evidence-codex.NJInJY/home/data/proof-codex-worker/launch-brief.md')"
+
+2. End-to-End Live Hook Execution:
+   Worktree path: /private/var/folders/q6/85qmrjc50x12lj8yqzv736tr0000gn/T/test-evidence-codex.NJInJY/wt
+   Admin session cwd: /Users/lucas
+
+   A. Captain Admin Session (Outside worker worktree, cwd=/Users/lucas):
+[2026-09-19T10:40:57Z] [5564] Hook started (codex)
+[2026-09-19T10:40:57Z] [5564] Input (84 bytes): {"session_id":"captain-admin-session","cwd":"/Users/lucas","hook_event_name":"Stop"}
+[2026-09-19T10:40:57Z] [5564] Event: Stop session=captain-admin-session
+[2026-09-19T10:40:57Z] [5564] Stop: finalMessage (0 chars): 
+   [PASS] Captain admin session is NOT disabled; Superwhisper agent-hook handles event normally.
+
+   B. Firstmate Codex Worker executing actual launch command in worktree:
+Codex process started in /private/var/folders/q6/85qmrjc50x12lj8yqzv736tr0000gn/T/test-evidence-codex.NJInJY/wt
+[2026-09-19T10:40:58Z] [5578] Hook started (codex)
+[2026-09-19T10:40:58Z] [5578] Input (153 bytes): {"session_id":"worker-session-1","cwd":"/private/var/folders/q6/85qmrjc50x12lj8yqzv736tr0000gn/T/test-evidence-codex.NJInJY/wt","hook_event_name":"Stop"}
+[2026-09-19T10:40:58Z] [5578] Event: Stop session=worker-session-1
+[2026-09-19T10:40:58Z] [5578] Exiting: superwhisper disabled for cwd=/private/var/folders/q6/85qmrjc50x12lj8yqzv736tr0000gn/T/test-evidence-codex.NJInJY/wt
+   [PASS] Superwhisper hook exited early with 'superwhisper disabled for cwd' inside worker worktree.
+
+   C. Marker State After Worker Exit:
+   [PASS] Marker /tmp/superwhisper-agent/disabled-89992aabd8d4bec5c6a864b119e0f6ca cleanly removed by EXIT trap on process completion.

@@ -1,0 +1,23 @@
+========================================================================
+EVIDENCE ARTIFACT 1: Pi Worker Package Discovery Opt-Out & Hook Delivery
+========================================================================
+Date: Sat Sep 19 10:39:36 UTC 2026
+Installed Pi binary: /Users/lucas/.npm-global/bin/pi
+
+1. Public Launch Interface Verification (bin/fm-spawn.sh):
+   Spawned worker command emitted to terminal multiplexer:
+export COMPACT_ADVISER_DISABLE=1; env -u CURSOR_AGENT -u CURSOR_INVOKED_AS -u GEMINI_CLI FM_PI_HARNESS=pi '/private/var/folders/q6/85qmrjc50x12lj8yqzv736tr0000gn/T/proof-pi-worker.iz2hTI/fake/fakebin/pi' --tui-mode regular -ne -e '/private/var/folders/q6/85qmrjc50x12lj8yqzv736tr0000gn/T/proof-pi-worker.iz2hTI/home/state/proof-pi-worker-ne.pi-ext.ts' "$('/Users/lucas/.no-mistakes/worktrees/ab37031b4237/01M2WK2F2AGQQQZZ0T8YYEZCGY/bin/fm-operational-input.sh' encode launch-brief < '/private/var/folders/q6/85qmrjc50x12lj8yqzv736tr0000gn/T/proof-pi-worker.iz2hTI/home/data/proof-pi-worker-ne/launch-brief.md')"
+
+   Flags inspection:
+   [PASS] -ne flag is present: package & directory extension discovery is disabled.
+   [PASS] Explicit turn-end hook is preserved: proof-pi-worker-ne.pi-ext.ts present via -e.
+
+2. End-to-End Execution with Real Installed Pi CLI (/Users/lucas/.npm-global/bin/pi):
+   A. Standard ambient run without -ne (ambient discovery active):
+[EXPLICIT] Firstmate turn-end supervision hook loaded
+[DISCOVERY] Superwhisper notification extension loaded
+
+   B. Firstmate worker run with -ne (package & auto-discovery disabled):
+[EXPLICIT] Firstmate turn-end supervision hook loaded
+
+   Verification Result: Discovered Superwhisper is silenced, while explicit turn-end hook executes.
