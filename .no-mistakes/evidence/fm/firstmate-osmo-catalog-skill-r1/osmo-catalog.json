@@ -1,0 +1,190 @@
+{
+  "success": true,
+  "drive": {
+    "found": true,
+    "drive_path": "/tmp/fm-osmo-demo.Tp4BOV/OsmoDrive",
+    "dcim_path": "/tmp/fm-osmo-demo.Tp4BOV/OsmoDrive/DCIM",
+    "read_only_verified": true,
+    "total_files": 6,
+    "video_files": [
+      "/tmp/fm-osmo-demo.Tp4BOV/OsmoDrive/DCIM/100MEDIA/DJI_20260914140000_0001_D.LRF",
+      "/tmp/fm-osmo-demo.Tp4BOV/OsmoDrive/DCIM/100MEDIA/DJI_20260914140000_0001_D.MP4",
+      "/tmp/fm-osmo-demo.Tp4BOV/OsmoDrive/DCIM/100MEDIA/DJI_20260914141500_0002_D.LRF",
+      "/tmp/fm-osmo-demo.Tp4BOV/OsmoDrive/DCIM/100MEDIA/DJI_20260914141500_0002_D.MP4",
+      "/tmp/fm-osmo-demo.Tp4BOV/OsmoDrive/DCIM/100MEDIA/DJI_20260914143000_0003_D.LRF",
+      "/tmp/fm-osmo-demo.Tp4BOV/OsmoDrive/DCIM/100MEDIA/DJI_20260914143000_0003_D.MP4"
+    ],
+    "error": null
+  },
+  "cache_dir": "/tmp/fm-osmo-demo.Tp4BOV/cache",
+  "superwhisper": {
+    "installed": true,
+    "app_path": "/Applications/superwhisper.app",
+    "running": true,
+    "database_found": true,
+    "database_path": "/Users/lucas/Library/Application Support/superwhisper/database/superwhisper.sqlite",
+    "recordings_dir_found": true,
+    "limitation_note": "Superwhisper is a macOS menu bar dictation tool without a headless CLI batch transcription mode. Audio tracks are extracted locally and primed for Superwhisper input; speech activity is analyzed locally via ffmpeg."
+  },
+  "summary": {
+    "total_clips": 3,
+    "total_duration_seconds": 8.0,
+    "paired_count": 3,
+    "a_roll_count": 1,
+    "a_roll_duration_seconds": 2.0,
+    "b_roll_count": 1,
+    "b_roll_duration_seconds": 2.0,
+    "mixed_count": 1,
+    "mixed_duration_seconds": 4.0
+  },
+  "clips": [
+    {
+      "stem": "DJI_20260914140000_0001_D",
+      "mp4_path": "/tmp/fm-osmo-demo.Tp4BOV/OsmoDrive/DCIM/100MEDIA/DJI_20260914140000_0001_D.MP4",
+      "lrf_path": "/tmp/fm-osmo-demo.Tp4BOV/OsmoDrive/DCIM/100MEDIA/DJI_20260914140000_0001_D.LRF",
+      "pair_status": "paired",
+      "mp4_size": 34681,
+      "lrf_size": 29727,
+      "mp4_mtime": 1789879920.8120139,
+      "lrf_mtime": 1789879920.893136,
+      "recorded_at": "2026-09-14T14:00:00",
+      "duration_seconds": 2.0,
+      "resolution": "640x360",
+      "fps": 24.0,
+      "visual_metrics": {
+        "sample_count": 3,
+        "sampled_frames": [
+          "/tmp/fm-osmo-demo.Tp4BOV/cache/frames/DJI_20260914140000_0001_D/frame_01.jpg",
+          "/tmp/fm-osmo-demo.Tp4BOV/cache/frames/DJI_20260914140000_0001_D/frame_02.jpg",
+          "/tmp/fm-osmo-demo.Tp4BOV/cache/frames/DJI_20260914140000_0001_D/frame_03.jpg"
+        ],
+        "face_frames_count": 0,
+        "face_count_max": 0,
+        "has_prominent_face": false,
+        "avg_brightness": 125.2,
+        "scene_variance": 0.014
+      },
+      "audio_metrics": {
+        "audio_extracted_path": "/tmp/fm-osmo-demo.Tp4BOV/cache/audio/DJI_20260914140000_0001_D/audio.wav",
+        "has_audio": true,
+        "speech_ratio": 1.0,
+        "speech_duration_seconds": 2.0,
+        "silence_duration_seconds": 0,
+        "mean_volume_db": -21.0,
+        "max_volume_db": -12.8
+      },
+      "transcription": {
+        "status": "transcribed",
+        "text": "Hello and welcome back to the channel. Today we test the Osmo Pocket 3 in real-world conditions.",
+        "source": "cli_transcriber",
+        "command": "python3 /tmp/fm-osmo-demo.Tp4BOV/transcribe.py {input} {output}"
+      },
+      "classification": {
+        "category": "A-roll",
+        "confidence": 0.8,
+        "rationale": "Narrative dialogue: continuous speech (100% vocal activity) in stable framing."
+      },
+      "from_cache": true,
+      "processed_at": "2026-09-20T04:52:02.071862+00:00"
+    },
+    {
+      "stem": "DJI_20260914141500_0002_D",
+      "mp4_path": "/tmp/fm-osmo-demo.Tp4BOV/OsmoDrive/DCIM/100MEDIA/DJI_20260914141500_0002_D.MP4",
+      "lrf_path": "/tmp/fm-osmo-demo.Tp4BOV/OsmoDrive/DCIM/100MEDIA/DJI_20260914141500_0002_D.LRF",
+      "pair_status": "paired",
+      "mp4_size": 17554,
+      "lrf_size": 12600,
+      "mp4_mtime": 1789879921.0021882,
+      "lrf_mtime": 1789879921.062256,
+      "recorded_at": "2026-09-14T14:15:00",
+      "duration_seconds": 2.0,
+      "resolution": "640x360",
+      "fps": 24.0,
+      "visual_metrics": {
+        "sample_count": 3,
+        "sampled_frames": [
+          "/tmp/fm-osmo-demo.Tp4BOV/cache/frames/DJI_20260914141500_0002_D/frame_01.jpg",
+          "/tmp/fm-osmo-demo.Tp4BOV/cache/frames/DJI_20260914141500_0002_D/frame_02.jpg",
+          "/tmp/fm-osmo-demo.Tp4BOV/cache/frames/DJI_20260914141500_0002_D/frame_03.jpg"
+        ],
+        "face_frames_count": 0,
+        "face_count_max": 0,
+        "has_prominent_face": false,
+        "avg_brightness": 125.2,
+        "scene_variance": 0.014
+      },
+      "audio_metrics": {
+        "audio_extracted_path": "/tmp/fm-osmo-demo.Tp4BOV/cache/audio/DJI_20260914141500_0002_D/audio.wav",
+        "has_audio": true,
+        "speech_ratio": 0.0,
+        "speech_duration_seconds": 0.0,
+        "silence_duration_seconds": 2.0,
+        "mean_volume_db": -91.0,
+        "max_volume_db": -91.0
+      },
+      "transcription": {
+        "status": "transcribed",
+        "text": "",
+        "source": "cli_transcriber",
+        "command": "python3 /tmp/fm-osmo-demo.Tp4BOV/transcribe.py {input} {output}"
+      },
+      "classification": {
+        "category": "B-roll",
+        "confidence": 0.95,
+        "rationale": "Atmospheric / cutaway footage: low audio activity (0%) and no host face detected across sample frames (scenery, objects, or environmental capture)."
+      },
+      "from_cache": true,
+      "processed_at": "2026-09-20T04:52:02.572803+00:00"
+    },
+    {
+      "stem": "DJI_20260914143000_0003_D",
+      "mp4_path": "/tmp/fm-osmo-demo.Tp4BOV/OsmoDrive/DCIM/100MEDIA/DJI_20260914143000_0003_D.MP4",
+      "lrf_path": "/tmp/fm-osmo-demo.Tp4BOV/OsmoDrive/DCIM/100MEDIA/DJI_20260914143000_0003_D.LRF",
+      "pair_status": "paired",
+      "mp4_size": 37475,
+      "lrf_size": 29599,
+      "mp4_mtime": 1789879921.2144258,
+      "lrf_mtime": 1789879921.3232365,
+      "recorded_at": "2026-09-14T14:30:00",
+      "duration_seconds": 4.0,
+      "resolution": "640x360",
+      "fps": 24.0,
+      "visual_metrics": {
+        "sample_count": 3,
+        "sampled_frames": [
+          "/tmp/fm-osmo-demo.Tp4BOV/cache/frames/DJI_20260914143000_0003_D/frame_01.jpg",
+          "/tmp/fm-osmo-demo.Tp4BOV/cache/frames/DJI_20260914143000_0003_D/frame_02.jpg",
+          "/tmp/fm-osmo-demo.Tp4BOV/cache/frames/DJI_20260914143000_0003_D/frame_03.jpg"
+        ],
+        "face_frames_count": 0,
+        "face_count_max": 0,
+        "has_prominent_face": false,
+        "avg_brightness": 125.2,
+        "scene_variance": 0.004
+      },
+      "audio_metrics": {
+        "audio_extracted_path": "/tmp/fm-osmo-demo.Tp4BOV/cache/audio/DJI_20260914143000_0003_D/audio.wav",
+        "has_audio": true,
+        "speech_ratio": 0.25,
+        "speech_duration_seconds": 1.0,
+        "silence_duration_seconds": 3.0,
+        "mean_volume_db": -27.1,
+        "max_volume_db": -12.8
+      },
+      "transcription": {
+        "status": "transcribed",
+        "text": "",
+        "source": "cli_transcriber",
+        "command": "python3 /tmp/fm-osmo-demo.Tp4BOV/transcribe.py {input} {output}"
+      },
+      "classification": {
+        "category": "Mixed",
+        "confidence": 0.85,
+        "rationale": "Hybrid clip: moderate speech activity (25%) combined with cutaways, pauses, or transitional action."
+      },
+      "from_cache": true,
+      "processed_at": "2026-09-20T04:52:03.092788+00:00"
+    }
+  ],
+  "report_path": "/tmp/fm-osmo-demo.Tp4BOV/cache/reports/osmo-catalog-2026-09-20-135203.md"
+}

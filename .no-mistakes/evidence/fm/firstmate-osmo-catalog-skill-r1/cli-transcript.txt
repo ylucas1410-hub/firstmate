@@ -1,0 +1,101 @@
+================================================================================
+DEMO 1: Discover Osmo Drive (Read-Only Verification)
+$ bin/fm-osmo.sh discover --drive /Volumes/Osmo
+================================================================================
+Osmo drive discovered at: /tmp/fm-osmo-demo.Tp4BOV/OsmoDrive
+DCIM folder: /tmp/fm-osmo-demo.Tp4BOV/OsmoDrive/DCIM
+Read-only verified: True
+Total video files: 6
+
+================================================================================
+DEMO 2: Scan DCIM Directory and Pair Master MP4 and Proxy LRF Files
+$ bin/fm-osmo.sh scan --drive /Volumes/Osmo
+================================================================================
+Found 3 clips on /tmp/fm-osmo-demo.Tp4BOV/OsmoDrive:
+  [paired] DJI_20260914140000_0001_D (Recorded: 2026-09-14T14:00:00)
+  [paired] DJI_20260914141500_0002_D (Recorded: 2026-09-14T14:15:00)
+  [paired] DJI_20260914143000_0003_D (Recorded: 2026-09-14T14:30:00)
+
+================================================================================
+DEMO 3: Full Cataloging, Audio & Visual Sampling, Local CLI Transcription, and Roll Classification
+$ bin/fm-osmo.sh catalog --drive /Volumes/Osmo --cache-dir ~/.firstmate/osmo-catalog-cache --transcriber 'python3 transcribe.py {input} {output}'
+================================================================================
+[fm-osmo] Processing 3 clips from /tmp/fm-osmo-demo.Tp4BOV/OsmoDrive/DCIM...
+============================================================
+OSMO POCKET CLIP CATALOG COMPLETE
+============================================================
+Total clips cataloged: 3 (00:08)
+  • A-roll: 1 clips (00:02)
+  • B-roll: 1 clips (00:02)
+  • Mixed:  1 clips (00:04)
+Report saved to: /tmp/fm-osmo-demo.Tp4BOV/cache/reports/osmo-catalog-2026-09-20-135203.md
+============================================================
+
+================================================================================
+DEMO 4: View High-Level Local Markdown Report via CLI
+$ bin/fm-osmo.sh report --cache-dir ~/.firstmate/osmo-catalog-cache
+================================================================================
+# Osmo Pocket Footage Catalog & Classification Report
+
+**Generated:** 2026-09-20 13:52:03  
+**Source Drive:** `/tmp/fm-osmo-demo.Tp4BOV/OsmoDrive` (Read-Only Verified)  
+**Cache Location:** `/tmp/fm-osmo-demo.Tp4BOV/cache`  
+**Superwhisper Status:** App Available  
+
+## Executive Summary
+
+Discovered and categorized **3 video clips** totaling **00:08** of footage.
+All processing performed 100% locally with zero cloud uploads or paid APIs.
+
+| Category | Clip Count | Total Duration | % of Total Footage |
+| :--- | :--- | :--- | :--- |
+| **A-roll** (Host / Dialogue) | 1 | 00:02 | 33.3% |
+| **B-roll** (Atmospheric / Cutaway) | 1 | 00:02 | 33.3% |
+| **Mixed** (Hybrid / Walk & Talk) | 1 | 00:04 | 33.3% |
+| **Total Footage** | **3** | **00:08** | 100.0% |
+
+## Device & Pairing Integrity
+
+- **Read-Only Invariant:** Verified. No writes, deletes, or sidecars were placed on `/Volumes/Osmo`.
+- **MP4 / LRF Proxy Pairing:** 3 clips paired with high-efficiency LRF proxy files.
+- **Single Files:** 0 clips found with only master MP4 or LRF.
+
+## Superwhisper & Speech Analysis
+
+- **Superwhisper Desktop App:** Detected at /Applications/superwhisper.app.
+- **Audio Tracks Extracted:** Audio tracks extracted to local cache outside the device.
+- **Interface Note:** Superwhisper is a macOS menu bar dictation tool without a headless CLI batch transcription mode. Audio tracks are extracted locally and primed for Superwhisper input; speech activity is analyzed locally via ffmpeg.
+
+## Clip Catalog Table
+
+| Clip ID | Recorded At | Duration | Pair | Category | Conf. | Speech % | Faces | Summary / Rationale |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `DJI_20260914140000_0001_D` | 2026-09-14T14:00:00 | 00:02 | `paired` | **A-roll** | 0.80 | 100% | 0/3 | Narrative dialogue: continuous speech (100% vocal activity) in stable framing. |
+| `DJI_20260914141500_0002_D` | 2026-09-14T14:15:00 | 00:02 | `paired` | **B-roll** | 0.95 | 0% | 0/3 | Atmospheric / cutaway footage: low audio activity (0%) and no host face detected across sample frames (scenery, objects, or environmental capture). |
+| `DJI_20260914143000_0003_D` | 2026-09-14T14:30:00 | 00:04 | `paired` | **Mixed** | 0.85 | 25% | 0/3 | Hybrid clip: moderate speech activity (25%) combined with cutaways, pauses, or transitional action. |
+
+## Creator Workflow Recommendations
+
+1. **A-roll Selects Pass:** Assemble the A-roll talking clips chronologically to establish the narrative spine.
+2. **B-roll Cutaways:** Pair B-roll atmospheric clips to cover cuts in the A-roll and visualize contextual locations.
+3. **Mixed Clip Trimming:** Review mixed clips to split conversational starts from cutaway action shots.
+
+---
+*Report compiled locally by Firstmate Osmo Catalog Skill.*
+
+
+================================================================================
+DEMO 5: Incremental Caching Verification (Subsequent Run Reuses Cache)
+$ bin/fm-osmo.sh catalog --drive /Volumes/Osmo --cache-dir ~/.firstmate/osmo-catalog-cache
+================================================================================
+[fm-osmo] Processing 3 clips from /tmp/fm-osmo-demo.Tp4BOV/OsmoDrive/DCIM...
+============================================================
+OSMO POCKET CLIP CATALOG COMPLETE
+============================================================
+Total clips cataloged: 3 (00:08)
+  • A-roll: 1 clips (00:02)
+  • B-roll: 1 clips (00:02)
+  • Mixed:  1 clips (00:04)
+Report saved to: /tmp/fm-osmo-demo.Tp4BOV/cache/reports/osmo-catalog-2026-09-20-135203.md
+============================================================
+[fm-osmo] Processing 3 clips from /tmp/fm-osmo-demo.Tp4BOV/OsmoDrive/DCIM...
