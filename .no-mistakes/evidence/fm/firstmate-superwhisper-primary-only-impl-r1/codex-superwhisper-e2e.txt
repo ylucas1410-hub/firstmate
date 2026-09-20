@@ -1,0 +1,28 @@
+================================================================================
+SUPERWHISPER CODEX VERIFICATION: ADMIN CHATS vs FIRSTMATE WORKERS
+================================================================================
+
+--- 1. Dedicated Admin Session (Chat / Codex admin tasks outside worker) ---
+Invoking /Applications/superwhisper.app/Contents/Resources/agent-hook codex in /Users/lucas/codex-admin-tasks...
+[2026-09-20T04:20:47Z] [62841] Hook started (codex)
+[2026-09-20T04:20:47Z] [62841] Input (109 bytes): {"session_id":"dedicated-admin-task-session","cwd":"/Users/lucas/codex-admin-tasks","hook_event_name":"Stop"}
+[2026-09-20T04:20:47Z] [62841] Event: Stop session=dedicated-admin-task-session
+[2026-09-20T04:20:47Z] [62841] Stop: finalMessage (0 chars): 
+Result: Hook ran without silencing; Superwhisper prompt is AVAILABLE.
+
+--- 2. Firstmate Worker Session with cwd-scoped disabled marker ---
+Marker created at /tmp/superwhisper-agent/disabled-a5c02de0dcdb69cc4fd095711c0bd1e6
+Invoking agent-hook codex in /Users/lucas/firstmate-worker-worktree...
+[2026-09-20T04:20:47Z] [62848] Hook started (codex)
+[2026-09-20T04:20:47Z] [62848] Input (113 bytes): {"session_id":"firstmate-worker-session","cwd":"/Users/lucas/firstmate-worker-worktree","hook_event_name":"Stop"}
+[2026-09-20T04:20:47Z] [62848] Event: Stop session=firstmate-worker-session
+[2026-09-20T04:20:47Z] [62848] Exiting: superwhisper disabled for cwd=/Users/lucas/firstmate-worker-worktree
+Result: Worker was SILENCED via cwd-scoped disabled marker.
+
+--- 3. Cleanup on worker EXIT trap ---
+Marker removed. Invoking agent-hook codex again in /Users/lucas/firstmate-worker-worktree...
+[2026-09-20T04:20:47Z] [62851] Hook started (codex)
+[2026-09-20T04:20:47Z] [62851] Input (106 bytes): {"session_id":"post-exit-session","cwd":"/Users/lucas/firstmate-worker-worktree","hook_event_name":"Stop"}
+[2026-09-20T04:20:47Z] [62851] Event: Stop session=post-exit-session
+[2026-09-20T04:20:47Z] [62851] Stop: finalMessage (0 chars): 
+Result: Normal behavior restored after worker exit trap executes.

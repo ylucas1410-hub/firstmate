@@ -1,0 +1,21 @@
+================================================================================
+SUPERWHISPER PI VERIFICATION: WORKER ISOLATION & PRIMARY vs ORDINARY SESSIONS
+================================================================================
+
+--- 1. Pi CLI -ne extension discovery isolation ---
+Executing 'pi -a -e explicit-hook.ts --help' (default discovery on):
+EXPLICIT_HOOK: LOADED
+PACKAGE_AUTO_DISCOVERED: LOADED
+
+Executing 'pi -a -ne -e explicit-hook.ts --help' (Firstmate worker launch with -ne):
+EXPLICIT_HOOK: LOADED
+Result: With -ne, discovered package extensions are blocked; explicit -e hooks remain loaded.
+
+--- 2. Primary Pi session (lock owner) leaves Superwhisper enabled ---
+Marker exists for owner session: false
+Result: Lock-owning primary session does NOT create disabled marker -> Superwhisper ENABLED.
+
+--- 3. Ordinary non-owner Pi session silences Superwhisper ---
+Marker exists during non-owner session: true
+Marker exists after session shutdown: false
+Result: Non-owner ordinary Pi session is SILENCED and cleaned up on exit.

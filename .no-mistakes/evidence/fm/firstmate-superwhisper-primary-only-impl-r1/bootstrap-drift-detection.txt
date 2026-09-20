@@ -1,0 +1,10 @@
+================================================================================
+SUPERWHISPER BOOTSTRAP DRIFT DETECTION VERIFICATION
+================================================================================
+
+--- Clean Pi settings ---
+Output contains SUPERWHISPER_DRIFT: 0
+
+--- Re-polluted Pi settings with Superwhisper ---
+SUPERWHISPER_DRIFT: global Pi settings re-enabled Superwhisper in /tmp/sw-drift-K93SxE/pi-agent/settings.json (remediation: pi remove npm:@superwhisper/pi)
+Result: Actionable remediation diagnostic printed without mutating user configuration.
